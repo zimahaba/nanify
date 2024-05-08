@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .input {
+        border: 1px solid #eeeeee;
+        border-radius: 4px;
+        height: 38px;
+        font-size: large;
+        padding: 4px 10px;
+    }
+
+    .shrink-button {
+        border: none; 
+        background-color: red; 
+        color: white; 
+        font-weight: bold; 
+        font: bold x-large arial; 
+        border-radius: 4px; 
+        height: 40px;
+    }
+}

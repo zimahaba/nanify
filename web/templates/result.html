@@ -1,0 +1,16 @@
+{{ define "content" }}
+    <div class="flex justify-center mt-10">
+        <div class="flex flex-col min-w-[800px] items-center">
+            <label class="m-2" style="font: bold x-large arial; color: #555555;">Long URL</label>
+            <label class="m-2" style="font: bold x-large arial; color: #555555;">{{ .OriginalUrl }}</label>
+            <label class="m-2" style="font: bold x-large arial; color: #555555;">Shrunk URL:</label>
+            <a href="{{ .ShortUrl }}" target="_blank">{{ .ShortUrl }}</a>
+            
+            <div class="flex justify-center mt-10">
+                <a type="submit" class="shrink-button w-52 flex justify-center items-center" href="/">
+                    Shrink Again
+                </a>
+            </div>
+        </div>
+    </div>
+{{ end }}

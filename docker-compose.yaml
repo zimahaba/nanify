@@ -1,0 +1,20 @@
+
+services:  
+  redis:
+    hostname: redis-service
+    image: bitnami/redis:7.0.15
+    environment:
+      ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "6379:6379"
+
+  redis-commander:
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOSTS=local:redis-service:6379
+    ports:
+      - "8081:8081"
