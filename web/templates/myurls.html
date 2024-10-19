@@ -1,0 +1,40 @@
+{{ define "content" }}
+
+    <script>
+        function copy(url) {
+            navigator.clipboard.writeText(url);
+        }
+    </script>
+
+    <div class="flex justify-center mt-10">
+        <form method="get" action="/">
+            <div class="flex flex-col min-w-[800px] max-w-[1200px] items-center text-wrap">
+                
+                {{ range .Urls }}
+                    <div class="flex justify-between items-center bg-white min-w-[400px] items-stretch" style="border-radius: 4px;">
+                        <div class="flex justify-center">
+                            <a class="m-2" style="font: bold large arial; color: #555555;" href="{{ .ShortUrl }}" target="_blank">{{ .ShortUrl }}</a>
+                        </div>
+                        <button style="width: 50px; background-color: red; color: #ffffff; font-weight: bold; border-top-right-radius: 4px; border-bottom-right-radius: 4px;"
+                            onclick="copy('{{ .ShortUrl }}')" type="button">Copy</button>
+                    </div>
+                    <div class="flex mb-10">
+                        <label class="m-2" style="font: bold large arial; color: #555555;">Long URL:</label>
+                        <label class="m-2" style="font: bold large arial; color: #555555;">{{ .LongUrl }}</label>                    
+                    </div>
+
+                {{ end }}
+
+                {{ if not .Urls }}
+                    <label class="m-2" style="font: bold large arial; color: #555555;">You have no recent shrunken URLs.</label>
+                {{ end }}
+                
+                <div class="flex justify-center mt-10">
+                    <button type="submit" class="shrink-button w-32">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form> 
+    </div>
+{{ end }}

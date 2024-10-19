@@ -9,8 +9,8 @@ import (
 func createCache() *redis.Client {
 	client := redis.NewClient(&redis.Options{
 		Addr:     "redis-service:6379",
-		Password: "", // no password set
-		DB:       0,  // use default DB
+		Password: "",
+		DB:       0,
 	})
 
 	if err := client.Ping(context.TODO()).Err(); err != nil {

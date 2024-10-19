@@ -14,7 +14,8 @@ func main() {
 
 	mux.HandleFunc("GET /", ShrinkPage)
 	mux.HandleFunc("GET /shrunk/", RedirectHandler(redisClient))
-	mux.HandleFunc("POST /shrink", ShrinkPageHandler(redisClient))
+	mux.HandleFunc("POST /", ShrinkPageHandler(redisClient))
+	mux.HandleFunc("GET /myurls", MyUrlsPage(redisClient))
 	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/styles"))))
 	mux.Handle("GET /assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./web/assets"))))
 

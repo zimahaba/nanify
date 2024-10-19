@@ -1,7 +1,10 @@
 {{ define "content" }}
     <div class="flex justify-center mt-10">
-        <form method="post" action="/shrink">
+        <form method="post" action="/">
             <div class="flex flex-col min-w-[800px] items-center">
+                {{ if .ErrorMsg }}
+                    <label class="text-red-600">{{ .ErrorMsg }}</label>
+                {{ end }}
                 <label class="m-2" style="font: bold x-large arial; color: #555555;">Enter your long URL here:</label>
                 <input class="input min-w-[800px] m-2" type="text" name="url">
                 <label class="m-2" style="font: bold x-large arial; color: #555555;">Customize your link:</label>
